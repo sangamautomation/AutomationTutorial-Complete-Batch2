@@ -2,20 +2,19 @@ package tests.modularizedFramework;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import data.Constants;
 import infrastructure.Operations;
+import setup.Setup;
+import utils.DateUtils;
 import utils.KeyboardUtils;
+import utils.ReportUtils;
 
 public class Selenium2ToolsqaTest {
 
@@ -24,26 +23,22 @@ public class Selenium2ToolsqaTest {
 		System.out.println("### Practice Automation Form ###");
 
 	}
-	public static void main(String[] args) throws Exception {
 
+	public static void main(String[] args) throws Exception {
+		System.out.println("*** Automation with Selenium WebDriver ***");
+
+		//Instantiation
+		WebDriver driver = null;
 		Operations op = new Operations();
 
-		System.out.println("*** Practice Automation Form ***");
+		//Variable Declaration
+		String browserType = "chrome";
+		String baseURL = "http://toolsqa.com/automation-practice-form/";
 
-		//WebDriver instantiation
-		System.setProperty("webdriver.chrome.driver", "E:/AutomationProjects\\drivers\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		System.out.println("*** Tools QA Practice Automation Form ***");
 
-		// Chrome browser launch & open URL
-		driver.get("http://toolsqa.com/automation-practice-form/");
-		System.out.println("Launched the Chrome browser & opened the URL");
-
-		//Synchronization (Implicit wait)
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		System.out.println("Waited ...");
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		//Prerequisites
+		Setup.launch(baseURL, browserType, Constants.CHROMEDRIVER_PATH);
 
 		// Web Interactions
 		//Partial Link (Reloads the same page)
@@ -53,22 +48,18 @@ public class Selenium2ToolsqaTest {
 		Thread.sleep(10000); //Static wait
 
 		//Link (Navigates to Web Table page)
-		driver.findElement(By.linkText("Link Test")).click();
-
+		//driver.findElement(By.linkText("Link Test")).click();
+		op.clickLinkByText(driver, "Link Test");
 
 		//Synchronization
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-
+		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		op.waitImplicitely(driver, 40);
 
 		// Web Table
-		
+
 		System.out.println("Automation Practice Table");
 
- 	//	op.clickLink(driver, "//a[contains(@title,'Automation Practice Table')]");
-
-	//	op.wait(10);
-				
-		String tableHeader1 = op.getWidgetText(driver, "//table/tbody/tr[1]/th");
+		String tableHeader1 =   op.getWidgetText(driver, "//table/tbody/tr[1]/th");
 		String tableData11 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[1]/td[1]"); 
 		String tableData12 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[1]/td[2]"); 
 		String tableData13 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[1]/td[3]"); 
@@ -76,7 +67,7 @@ public class Selenium2ToolsqaTest {
 		String tableData15 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[1]/td[5]"); 
 		String tableData16 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[1]/td[6]"); 
 
-		String tableHeader2 = op.getWidgetText(driver, "//table/tbody/tr[2]/th");
+		String tableHeader2 =   op.getWidgetText(driver, "//table/tbody/tr[2]/th");
 		String tableData21 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[2]/td[1]"); 
 		String tableData22 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[2]/td[2]"); 
 		String tableData23 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[2]/td[3]"); 
@@ -101,119 +92,107 @@ public class Selenium2ToolsqaTest {
 		String tableData46 =	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[4]/td[6]"); 
 
 		//driver.findElement(By.xpath("//div[@id='content']//table//tbody/tr[4]/td[6]")).click();
-		
+
 		//String tableText=	op.getWidgetText(driver, "//div[@id='content']//table//tbody/tr[1]/td[1]"); 
- 		String[][] tableData = new String[10][10]; //max rows = 10, max cols = 10
+		String[][] tableData = new String[10][10]; //max rows = 10, max cols = 10
 		for (int i = 1; i <= 4; i++) {
 			for (int j = 1; j <= 6; j++) {
 				//	 	tableData[i][j] =  	op.getWidgetText(driver, PO_ToolsQA.text_Table(i, j)); 
 				tableData[i][j] = op.getText(driver, "//div[@id='content']//table//tbody/tr["+i+"]/td["+j+"]"); 
 				//	op.clickLink(driver, "//div[@id='content']//table//tbody/tr[1]/td[6]");
-			//	System.out.print(tableData[i][j] +"	");
+				//	System.out.print(tableData[i][j] +"	");
 			}
 			//System.out.println();
 		}
 
-		
+
 		for (int i = 1; i <= 4; i++) {
 			for (int j = 1; j <= 6; j++) {
- 				System.out.print(tableData[i][j] +", ");
+				System.out.print(tableData[i][j] +", ");
 			}
 			System.out.println();
 		}
-	
- 
+
+		//Validation
+		ReportUtils.compare("UAE", tableData11);
+
 		//Navigate back
 		driver.navigate().back();//Back
 		/*driver.navigate().to("URL");//To like get
 		driver.navigate().forward(); //Forward
 		driver.navigate().refresh(); //Reload page
 		 */		
-		
+
 		System.out.println("Navigated back..");
 
 		//Synchronization
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
+		op.waitImplicitely(driver, 30);
+		
 		// Actions
-	 /*	Actions actions = new Actions(driver);
+		/*	Actions actions = new Actions(driver);
 		WebElement wel = driver.findElement(By.xpath(""));
 		actions.moveToElement(wel).contextClick().click().doubleClick().build().perform();
-*/ 
+		 */ 
+		
 		//Text boxes
-		driver.findElement(By.xpath("//input[contains(@name,'firstname')]")).sendKeys("Selenium");
-		driver.findElement(By.xpath("//input[contains(@name,'lastname')]")).sendKeys("Automation");
-		System.out.println("Entered firstname &  lastname");
+		op.setText(driver, "//input[contains(@name,'firstname')]", "Selenium");
+		op.setText(driver, "//input[contains(@name,'lastname')]", "Automation");
 
 		// Radio button
-		driver.findElement(By.xpath("//input[contains(@name,'sex') and contains(@value,'Male')]")).click();
-		driver.findElement(By.xpath("//input[contains(@name,'exp') and contains(@value,'7')]")).click();
-		System.out.println("Clicked on Radio buttons sex &  exp");
+		op.clickRadiobutton(driver, "//input[contains(@name,'sex') and contains(@value,'Male')]");
+		op.clickRadiobutton(driver, "//input[contains(@name,'exp') and contains(@value,'7')]");
 
 		//Text box
-		driver.findElement(By.id("datepicker")).sendKeys("12/20/2018");
-		System.out.println("Entered Date 12/20/2018");
+		op.setTextById(driver, "datepicker", DateUtils.timestamp("MM/dd/yyyy"));
 
 		// Checkboxes
-		driver.findElement(By.xpath("//input[contains(@value,'Manual Tester')]")).click();
-		driver.findElement(By.xpath("//input[contains(@value,'Automation Tester')]")).click();
-		System.out.println("Clicked on checkboxes  Profession");
+		op.clickCheckbox(driver, "//input[contains(@value,'Manual Tester')]");
+		op.clickCheckbox(driver, "//input[contains(@value,'Automation Tester')]");
 
 		//Upload & Browse File (Robot / Actions / WGet / AutoIT / ExecRuntime )
-		driver.findElement(By.xpath("//input[@id='photo' and @name='photo']")).click();
-		//	driver.findElement(By.xpath("//input[@id='photo' and @name='photo']")).sendKeys("C:\Users\sanga\Pictures\go2meeting.png");
-
+		op.clickLink(driver, "//input[@id='photo' and @name='photo']");
+ 
+		//Browse File
 		String filePath1 = "C:\\Users\\sanga\\Pictures\\go2meeting.png";
 		String filePath = "\\Users\\sanga\\Pictures\\go2meeting.png";
 
 		new KeyboardUtils().Key_Any(KeyEvent.VK_C); // Typing Driver letter C
 		new KeyboardUtils().Key_Colon(); //Typing colon separately as we need to press SHIFT
 		KeyboardUtils.typeString(filePath);
-
+		//new  KeyboardUtils().Key_Enter();
 		//Robot is to interact with non-browser objects (Upload dialog/popup)
 		Robot robot = new Robot();
-		 		
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		
+
 		System.out.println("Uploaded the file.");
 
 		//Download File
-		driver.findElement(By.xpath("//a[text()='Test File to Download']")).click();
-		System.out.println("Downloaded the file.");
+		op.clickLink(driver, "//a[text()='Test File to Download']");
 
 		// Checkbox
-		driver.findElement(By.xpath("//input[contains(@value,'Selenium Webdriver')]")).click();
+		op.clickCheckbox(driver, "//input[contains(@value,'Selenium Webdriver')]");
 
 		//Dropdown
-		WebElement we = driver.findElement(By.xpath("//select[contains(@id,'continents')]"));
-		Select sel = new Select(we);
-		//sel.selectByIndex(5);//North America
-		//sel.selectByValue("North America");
-		sel.selectByVisibleText("North America");
-		System.out.println("Selected dropdown value");
-
+		op.selectDropdown(driver, "//select[contains(@id,'continents')]", "North America");
+		
 		//Combobox (Multiple selection)
-		WebElement we1 = driver.findElement(By.xpath("//select[contains(@id,'selenium_commands')]"));
-		Select sel1 = new Select(we1);
-		sel1.selectByVisibleText("Browser Commands");
-		sel1.selectByVisibleText("Navigation Commands");
-		sel1.selectByVisibleText("WebElement Commands");
-
-		System.out.println("Selected combobox value");
+		op.selectDropdown(driver, "//select[contains(@id,'selenium_commands')]", "Browser Commands");
+		op.selectDropdown(driver, "//select[contains(@id,'selenium_commands')]", "Navigation Commands");
+		op.selectDropdown(driver, "//select[contains(@id,'selenium_commands')]", "WebElement Commands");
 
 		//Button (Reloads the same page)
-		driver.findElement(By.xpath("//button[contains(@id,'submit')]")).click();
-		System.out.println("Clicked on button");
-
+		op.clickLink(driver, "//button[contains(@id,'submit')]");
+	
 		//Synchronization (Explicit Wait)
+		op.waitExplicitely(driver, 50, "//div[@class='branding']/a/img[contains(@src,'http://20tvni1sjxyh352kld2lslvc.wpengine.netdna-cdn.com/wp-content/uploads/2014/08/Toolsqa.jpg')]");
+		
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='branding']/a/img[contains(@src,'http://20tvni1sjxyh352kld2lslvc.wpengine.netdna-cdn.com/wp-content/uploads/2014/08/Toolsqa.jpg')]"))); 
 		wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("")), "Expected text"));
-		
+
 		//Label (Capture Text)
-		String capturedText = driver.findElement(By.xpath("//label/span[contains(@class,'bcd')]")).getText();
-		System.out.println("Captured Text : "+capturedText);
+		String capturedText = op.getText(driver, "//label/span[contains(@class,'bcd')]");
 
 		//Wait
 		Thread.sleep(10000);

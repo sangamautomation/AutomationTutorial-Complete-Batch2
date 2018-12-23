@@ -9,9 +9,7 @@
  */
 package tests.modularizedFramework;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import data.Constants;
 import infrastructure.Operations;
@@ -69,10 +67,7 @@ public class Selenium2GoogleTest {
 				 System.out.println("Pass - Expected and Actual Page titles are equal");
 			 else
 				 System.out.println("Fail - Expected and Actual Page titles are NOT equal");
-
-			
-
-			
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

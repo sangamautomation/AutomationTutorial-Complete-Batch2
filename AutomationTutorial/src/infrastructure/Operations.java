@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import javax.swing.JOptionPane;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
@@ -50,14 +52,12 @@ public class Operations{
 	public void clickLink(WebDriver driver, String xpathLocator) {
 		try {
 			driver.findElement(By.xpath(xpathLocator)).click(); //"//span[contains(@id, 'next_label')]"
-			//	driver.switchTo().defaultContent(); // Before exiting the page call separately
-			//log("+ OK - clickLinkOrButton - "+ xpathLocator);
-			logOk("clickLinkOrButton - "+ xpathLocator);
+ 			//log("+ OK - clickLinkOrButton - "+ xpathLocator);
+			logOk("clickLink - "+ xpathLocator);
 		} catch (Exception e) {
-			//log("- NOTOK- clickLinkOrButton - "+ xpathLocator);
-			logNotOk(" clickLinkOrButton - "+ xpathLocator);
+ 			logNotOk(" clickLink - "+ xpathLocator);
 			e.printStackTrace();
-			//throw e;
+			// throw e;
 		}
 	}	
 
@@ -68,9 +68,8 @@ public class Operations{
 	 */
 	public void clickLinkByText(WebDriver driver, String linkText) {
 		try {
-			driver.findElement(By.linkText(linkText)).click(); //"Register here"
-			//	driver.switchTo().defaultContent(); // Before exiting the page call separately
-			log("+ OK - clickLinkByText - "+ linkText);
+			driver.findElement(By.linkText(linkText)).click(); 
+ 			log("+ OK - clickLinkByText - "+ linkText);
 		} catch (Exception e1) {
 			try {
 				driver.findElement(By.xpath("//*[text()=\""+linkText + "\"]")).click();     
@@ -138,7 +137,7 @@ public class Operations{
 	}
 
 	/**
-	 * This method will wait for an object implicitely for a given timeout period in sec
+	 * This method will wait for an object implicitly for a given timeout period in sec
 	 * @param driver
 	 * @param timeout_Seconds
 	 */
@@ -229,10 +228,7 @@ public class Operations{
 			driver.findElement(By.xpath(xpathLocator)).clear();
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(xpathLocator)).sendKeys(testData); //"//input[contains(@title, 'Is anyone in the household blind')]" ~ h.get("ai_Blind")
-			if(!testData.contains("@")) // To avoid printing password to System.Out logs - add more spl chars as needed
-				logOk("-> setText : "+ xpathLocator + " = "+ testData );
-			else
-				logOk("-> setText : "+ xpathLocator + " = "+ "password entered" );
+			logOk("-> setText : "+ xpathLocator + " = "+ testData );
 		} catch (Exception e) {
 			logNotOk("WebElement - "+ xpathLocator + " does not exist! Moving on...");
 			e.printStackTrace();
@@ -292,7 +288,7 @@ public class Operations{
 	}
 
 	/**
-	 * This method will select dropdown with the given xpathLocator
+	 * This method will select dropdown or combobox with the given xpathLocator
 	 * @param driver
 	 * @param xpathLocator
 	 * WORKS
@@ -300,14 +296,11 @@ public class Operations{
 	 */
 	public void selectDropdown(WebDriver driver, String xpathLocator,  String value) throws Exception {
 		try {
-			//driver.findElement(By.xpath(xpathLocator)).click(); //"//span[contains(@title, 'next_label')]"
-			//	WebElement ele= driver.findElement(By.xpath(xpathLocator));
-			//	log("element="+ele.toString());
-			Select select = new Select(driver.findElement(By.xpath(xpathLocator))); //select webelement -dropdown : "//select[@id='periodId']"
+ 			WebElement ele= driver.findElement(By.xpath(xpathLocator));
+ 			Select select = new Select(ele); //select webelement -dropdown : "//select[@id='periodId']"
 			Thread.sleep(1000);
-			//		 select.selectByVisibleText(value); //   select particaular option
+			//select.selectByValue(value); //   select particaular option
 			select.selectByVisibleText(value);
-			//			select.selectByIndex(index);
 			log("+ OK - selectDropdown - " + " - "+ xpathLocator );
 		} catch (Exception e) {
 			e.printStackTrace();
