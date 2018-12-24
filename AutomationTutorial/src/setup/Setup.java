@@ -96,4 +96,14 @@ public class Setup {
 		return driver;
 
 	}
+
+	public static void teardown(WebDriver driver){
+		driver.close();
+		System.out.println("Closed the browser!");
+	}
+
+	public static void teardownAll(WebDriver driver){
+		driver.quit();
+		System.out.println("Closed the browser!");
+	}
 }
