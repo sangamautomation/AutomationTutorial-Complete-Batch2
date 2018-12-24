@@ -52,10 +52,10 @@ public class Operations{
 	public void clickLink(WebDriver driver, String xpathLocator) {
 		try {
 			driver.findElement(By.xpath(xpathLocator)).click(); //"//span[contains(@id, 'next_label')]"
- 			//log("+ OK - clickLinkOrButton - "+ xpathLocator);
+			//log("+ OK - clickLinkOrButton - "+ xpathLocator);
 			logOk("clickLink - "+ xpathLocator);
 		} catch (Exception e) {
- 			logNotOk(" clickLink - "+ xpathLocator);
+			logNotOk(" clickLink - "+ xpathLocator);
 			e.printStackTrace();
 			// throw e;
 		}
@@ -69,7 +69,7 @@ public class Operations{
 	public void clickLinkByText(WebDriver driver, String linkText) {
 		try {
 			driver.findElement(By.linkText(linkText)).click(); 
- 			log("+ OK - clickLinkByText - "+ linkText);
+			log("+ OK - clickLinkByText - "+ linkText);
 		} catch (Exception e1) {
 			try {
 				driver.findElement(By.xpath("//*[text()=\""+linkText + "\"]")).click();     
@@ -141,10 +141,10 @@ public class Operations{
 	 * @param driver
 	 * @param timeout_Seconds
 	 */
-	public void waitImplicitely(WebDriver driver, int timeout_Seconds) {
+	public void waitImplicitly(WebDriver driver, int timeout_Seconds) {
 		try {
 			driver.manage().timeouts().implicitlyWait(timeout_Seconds, TimeUnit.SECONDS);
-			log("--- waitImplicitely - "+ timeout_Seconds + "Sec.");
+			log("--- waitImplicitly - "+ timeout_Seconds + "Sec.");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -160,7 +160,7 @@ public class Operations{
 	public void wait(WebDriver driver, int maxTimeOutInSecond){
 		try {
 			driver.manage().timeouts().implicitlyWait(maxTimeOutInSecond, TimeUnit.SECONDS);
-			LogUtils.log("Waiting implicitely for "+maxTimeOutInSecond + " seconds");
+			LogUtils.log("Waiting implicitly for "+maxTimeOutInSecond + " seconds");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -171,16 +171,32 @@ public class Operations{
 	 * @param driver
 	 * @param maxTimeOutInSecond
 	 */
-	public void waitExplicitely(WebDriver driver, int maxTimeOutInSecond, String xpathOfWaitingElement){
+	public void waitExplicitly(WebDriver driver, int maxTimeOutInSeconds, String xpathOfWaitingElement){
 		try {
-			WebDriverWait myWait = new WebDriverWait(driver, maxTimeOutInSecond);
+			WebDriverWait myWait = new WebDriverWait(driver, maxTimeOutInSeconds);
 			myWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathOfWaitingElement)));
-			LogUtils.log("Waiting explicitely for "+maxTimeOutInSecond + " seconds" + " for "+ xpathOfWaitingElement);
+			LogUtils.log("Waiting explicitly for "+maxTimeOutInSeconds + " seconds" + " for "+ xpathOfWaitingElement);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * This method will wait explicitly for the specified time in seconds until the specified text in element is present in html page or table element
+	 * @param driver
+	 * @param maxTimeOutInSecond
+	 * @param expectedText
+	 */
+	public void waitExplicitly(WebDriver driver, int maxTimeOutInSeconds, String xpathOfWaitingElement, String expectedText){
+		try {
+			WebDriverWait myWait = new WebDriverWait(driver, maxTimeOutInSeconds);
+			myWait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath(xpathOfWaitingElement)), expectedText));
+ 
+			LogUtils.log("Waiting explicitly for "+maxTimeOutInSeconds + " seconds" + " in "+ xpathOfWaitingElement+ " for "+ expectedText);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * This method will switch to default content before exiting the page with the given xpathLocator
@@ -235,7 +251,7 @@ public class Operations{
 			//		throw e;
 		}
 	}
-	
+
 	/**
 	 * This method will click on Button or Link with the given xpathLocator's partial ID value
 	 * @param driver
@@ -244,10 +260,10 @@ public class Operations{
 	public void setTextById(WebDriver driver, String idLocator, String testData) {
 		try {
 			//driver.findElement(By.id(idLocator)).clear();
-		//	driver.findElement(By.id(idLocator)).sendKeys(testData); // "__o3id8" ~ h.get("ai_Blind")
+			//	driver.findElement(By.id(idLocator)).sendKeys(testData); // "__o3id8" ~ h.get("ai_Blind")
 			driver.findElement(By.xpath("//input[contains(@id,'"+idLocator+"')]")).clear(); 
- 			driver.findElement(By.xpath("//input[contains(@id,'"+idLocator+"')]")).sendKeys(testData); //   \"  = ' (Use single quote or double quote with escape char)
- 			log("- setTextById - "+ testData + " - "+ idLocator );
+			driver.findElement(By.xpath("//input[contains(@id,'"+idLocator+"')]")).sendKeys(testData); //   \"  = ' (Use single quote or double quote with escape char)
+			log("- setTextById - "+ testData + " - "+ idLocator );
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -272,7 +288,7 @@ public class Operations{
 		try
 		{
 			//switchToFrame(driver, xpathLocator);
-		 	driver.findElement(By.xpath("//input[contains(@title,'"+xpathLocatorTitle+"')]")).clear();
+			driver.findElement(By.xpath("//input[contains(@title,'"+xpathLocatorTitle+"')]")).clear();
 			driver.findElement(By.xpath("//input[contains(@title,'"+xpathLocatorTitle+"')]")).sendKeys(testData); //   \"  = ' (Use single quote or double quote with escape char)
 			// //input[contains(@title,\"Is anyone outside this household expected to enter\")]
 			// "//input[contains(@title,'"+Is anyone outside this household expected to enter+"')]"
@@ -280,7 +296,7 @@ public class Operations{
 		}catch (Exception ex)
 		{
 			log("-ESC setTextByTitle - "+ xpathLocatorTitle + " - "+ testData );//Element does not exist, moving on..
-		//	ex.printStackTrace(); //no need to print stack trace info as it is meant for trying and moving on.. use setText for printing stack trace as regular function
+			//	ex.printStackTrace(); //no need to print stack trace info as it is meant for trying and moving on.. use setText for printing stack trace as regular function
 			//	throw ex;
 		}
 
@@ -296,8 +312,8 @@ public class Operations{
 	 */
 	public void selectDropdown(WebDriver driver, String xpathLocator,  String value) throws Exception {
 		try {
- 			WebElement ele= driver.findElement(By.xpath(xpathLocator));
- 			Select select = new Select(ele); //select webelement -dropdown : "//select[@id='periodId']"
+			WebElement ele= driver.findElement(By.xpath(xpathLocator));
+			Select select = new Select(ele); //select webelement -dropdown : "//select[@id='periodId']"
 			Thread.sleep(1000);
 			//select.selectByValue(value); //   select particaular option
 			select.selectByVisibleText(value);
@@ -325,7 +341,7 @@ public class Operations{
 	}
 
 
-	
+
 
 	/**
 	 * This method will return text of an object with the given xpathLocator
@@ -828,14 +844,14 @@ public class Operations{
 		Wait<WebDriver> wait = null;
 		WebDriver driver = null;
 		if("Chrome".equals(browserType)){
-			
-		/*	
+
+			/*	
 		 // Figure out how to ignore zoom settings on chrome with capabilities or profile
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			capabilities.setCapability(ChromeDriver..)
 			capabilities.setCapability(ChromeDriver
-		*/
-			
+			 */
+
 			System.setProperty("webdriver.chrome.driver", "D:\\drivers\\chromedriver.exe"); // Latest werbdriver compatible with Chrome v.53.0.2785.101
 			driver = new ChromeDriver();
 
@@ -868,7 +884,7 @@ public class Operations{
 			File pathBinary = new File("C:/Program Files (x86)/Mozilla Firefox\\firefox.exe");
 			FirefoxBinary Binary = new FirefoxBinary(pathBinary);
 			FirefoxProfile firefoxPro = new FirefoxProfile();
- 			System.out.println("Firefox profile2..");
+			System.out.println("Firefox profile2..");
 
 			driver.manage().window().fullscreen();
 			//To download file in the directory mentioned while creating profile. And then, create a browser instance by passing profile:
@@ -939,7 +955,7 @@ public class Operations{
 		}
 		return driver_IE;
 	}
- 
+
 
 	public WebDriver launchBrowser_Chrome(String driverPath) {
 		//    static WebDriver driver;
@@ -949,8 +965,8 @@ public class Operations{
 		return driver;
 	}
 
-	 
- 
+
+
 	/**
 	 * launchBrowser
 	 * All Drivers (latest version): Chrome,MozillaGecko,MicrosoftEdge,HtmlUnit,Firefox,Opera,Ghost,WindowsPhone,Selendroid,IOS,BlackBerry,Appium,CrossWalk,QT,JBrowser,Winium
@@ -1067,14 +1083,14 @@ public class Operations{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xPath))); 
 			log("FOUND -- waitUntilVisible " + xPath );
 		} catch (Exception e) {
-		//	e.printStackTrace();
+			//	e.printStackTrace();
 			log("NOTFOUND & MOVING ON -- Checking if Widget exists....."+xPath);	
 		}
 	}
 
 
-	
-	 
+
+
 	// Wait waitUntilTextPresent
 
 	public void waitUntilTextPresent(WebDriver driver, String xPath, String textToBePresent) throws Exception{
@@ -1084,7 +1100,7 @@ public class Operations{
 			wait.until(ExpectedConditions.textToBePresentInElement(webElement(driver, xPath), textToBePresent));  
 			log("waitUntilTextPresent " + xPath + " exists = " + textToBePresent);
 		} catch (Exception e) {
- 			e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
