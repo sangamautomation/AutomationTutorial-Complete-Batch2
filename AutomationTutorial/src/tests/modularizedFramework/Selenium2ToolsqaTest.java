@@ -181,7 +181,7 @@ public class Selenium2ToolsqaTest {
 			op.selectDropdown(driver, "//select[contains(@id,'selenium_commands')]", "WebElement Commands");
 
 			//Button (Reloads the same page)
-			op.clickLink(driver, "//button[contains(@id,'submit')]");
+			//op.clickLink(driver, "//button[contains(@id,'submit')]");
 
 			//Synchronization (Explicit Wait)
 			op.waitExplicitly(driver, 50, "//div[@class='branding']/a/img[contains(@src,'http://20tvni1sjxyh352kld2lslvc.wpengine.netdna-cdn.com/wp-content/uploads/2014/08/Toolsqa.jpg')]");
@@ -198,6 +198,7 @@ public class Selenium2ToolsqaTest {
 		finally{
 			//Close Browser-Driver Instance
 			Setup.teardown(driver);
+			System.out.println();
 		}
 
 	}

@@ -18,14 +18,19 @@ public class Constants {
 	public static String workingDir = System.getProperty("user.dir"); //C:\\AutomationProjects\\TestAutomation_Selenium
 	//public static String datapoolPath = "C:\\AutomationProjects\\SeleniumTutorial\\resource\\TestDataPool_Automation.xls";
 
-	public static String automationDatapoolPath = workingDir + "\\resources\\TestDataPool_Automation.xls";
+	public static final String automationDatapoolPath = workingDir + "\\resources\\TestDataPool_Automation.xls";
 
-	public static String CHROMEDRIVER_PATH = "E:\\AutomationProjects\\drivers\\chromedriver.exe";
+	public static final String CHROMEDRIVER_PATH = "E:\\AutomationProjects\\drivers\\chromedriver.exe";
+	public static final String FIREFOXDRIVER_PATH = "C:\\drivers\\geckodriver.exe";
+
+	public static final String filePath_Toolsqa = "\\Users\\sanga\\Pictures\\go2meeting.png";
 
 //	public static String screenshotFolderPath = "C:\\Selenium_Logs\\Screenshots\\";
 	public static String screenshotFolderPath = "C:\\Selenium_Logs\\Screenshots\\";
 	
-	public static String configPath = "C:/AutomationProjects/SeleniumTutorial/src/config/config.properties";
+	public static final String configPath = workingDir + "/src/config/config.properties";
+	public static String configPathHardCoded = "C:/AutomationProjects/SeleniumTutorial/src/config/config.properties";
+
 	public static int counter = 0;
 	
 	public static String dataPool_Xls = "C:\\AutomationProjects\\SeleniumTutorial\\resource\\TestDataPool_Automation.xls"; 

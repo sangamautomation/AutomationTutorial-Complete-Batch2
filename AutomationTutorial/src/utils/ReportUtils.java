@@ -56,6 +56,7 @@ public class ReportUtils {
 	}
 
 	public static boolean compare(String ExpectedResult, String ActualResult) {
+		LogUtils.log("~~~~~~~~~~~~~~~ Validation ~~~~~~~~~~~~~~~");
 		boolean flag = false;
 		try {
 			//ExpectedResult = ExpectedResult.trim();

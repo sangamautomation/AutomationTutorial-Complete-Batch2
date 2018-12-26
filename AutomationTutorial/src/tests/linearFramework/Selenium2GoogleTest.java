@@ -27,7 +27,7 @@ public class Selenium2GoogleTest {
 		String actualTitle = null; // Runtime
 		
 		// Browser Setup for Chrome
-			System.setProperty("webdriver.chrome.driver", "E:/AutomationProjects\\drivers\\chromedriver.exe"); //Change Driver letter accordingly. Use in path: escape char \\ or /
+			System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe"); //Change Driver letter accordingly. Use in path: escape char \\ or /
 			WebDriver driver = new ChromeDriver(); // Instantiate ChromeDriver
 
 					

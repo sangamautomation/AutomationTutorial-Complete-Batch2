@@ -202,7 +202,6 @@ public class Selenium2ToolsqaTest {
 		//Synchronization (Explicit Wait)
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='branding']/a/img[contains(@src,'http://20tvni1sjxyh352kld2lslvc.wpengine.netdna-cdn.com/wp-content/uploads/2014/08/Toolsqa.jpg')]"))); 
-		wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("")), "Expected text"));
 		
 		//Label (Capture Text)
 		String capturedText = driver.findElement(By.xpath("//label/span[contains(@class,'bcd')]")).getText();
