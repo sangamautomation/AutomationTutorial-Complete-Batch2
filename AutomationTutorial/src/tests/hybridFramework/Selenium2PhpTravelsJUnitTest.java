@@ -9,8 +9,10 @@ import data.Constants;
 import infrastructure.Operations;
 import pageFlows.phptravels.Home;
 import pageFlows.phptravels.Login;
-import pageObjects.phptravels.Phptravels;
+import pageFlows.phptravels.QuickBookingsPage;
+import pageObjects.phptravels.SupplierLogin;
 import setup.Setup;
+import utils.LogUtils;
 
 // JUnit Test case
 
@@ -30,11 +32,12 @@ public class Selenium2PhpTravelsJUnitTest {
 
 	@After
 	public void postrequisites(){
-		Setup.teardown(driver);
+		//Setup.teardown(driver);
 	}
 
 	@Test
-	public void testPhpTravels(){
+	public void testPhpTravels() throws Exception{
+		LogUtils.log("Php Travels Test");
 
 		//Home
 	//	new Home().supplier(driver);
@@ -43,6 +46,11 @@ public class Selenium2PhpTravelsJUnitTest {
 
 		// Login Panel
 		new Login().loginPanel(driver);
+		
+		//Quick Bookings
+		new QuickBookingsPage().quickbookings(driver);
+		new QuickBookingsPage().popupService(driver);
+		new QuickBookingsPage().formBooking(driver);
 
 	}
 
