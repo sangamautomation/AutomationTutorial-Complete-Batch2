@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import data.Constants;
 import infrastructure.Operations;
 import pageObjects.toolsqa.ToolsqaObjects;
-import setup.Setup;
+import setup.TestRunSetup;
 import utils.DateUtils;
 import utils.KeyboardUtils;
 import utils.ReportUtils;
@@ -37,7 +37,7 @@ public class ToolsqaTest {
 			System.out.println("*** Tools QA Practice Automation Form ***");
 
 			//Prerequisites
-			driver = Setup.launch(baseURL, browserType, Constants.CHROMEDRIVER_PATH);
+			driver = TestRunSetup.launch(baseURL, browserType, Constants.CHROMEDRIVER_PATH);
 
 			//Web Interactions
 			//Partial Link (Reloads the same page)
@@ -190,7 +190,7 @@ public class ToolsqaTest {
 		}
 		finally{
 			//Close Browser-Driver Instance
-			Setup.teardown(driver);
+			TestRunSetup.teardown(driver);
 			System.out.println();
 		}
 

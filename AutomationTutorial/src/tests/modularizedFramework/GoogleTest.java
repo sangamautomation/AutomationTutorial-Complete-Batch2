@@ -9,11 +9,13 @@
  */
 package tests.modularizedFramework;
 
+import java.text.ParseException;
+
 import org.openqa.selenium.WebDriver;
 
 import data.Constants;
 import infrastructure.Operations;
-import setup.Setup;
+import setup.TestRunSetup;
 
 /**
  * @author sangam
@@ -22,7 +24,7 @@ import setup.Setup;
  */
 public class GoogleTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		//Instantiations
 		Operations op = new Operations();
@@ -49,7 +51,7 @@ public class GoogleTest {
 			// Maximize browser window
 			///driver.manage().window().maximize();
 
-			driver = Setup.launch(url, browser, Constants.CHROMEDRIVER_PATH);	
+			driver = TestRunSetup.launch(url, browser, Constants.CHROMEDRIVER_PATH);	
 
 			// Type search term in Google search box (by identifying object with xPath)
 			op.setText(driver, "//input[@title='Search']", searchTerm);
@@ -73,7 +75,7 @@ public class GoogleTest {
 		}
 
 		finally {
-			Setup.teardown(driver);
+			TestRunSetup.teardown(driver);
 		}
 
 

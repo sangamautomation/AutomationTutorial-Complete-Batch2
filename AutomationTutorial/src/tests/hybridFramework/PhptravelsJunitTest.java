@@ -1,5 +1,7 @@
 package tests.hybridFramework;
 
+import java.text.ParseException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +13,7 @@ import pageFlows.phptravels.HomePage;
 import pageFlows.phptravels.LoginPage;
 import pageFlows.phptravels.QuickBookingsPage;
 import pageObjects.phptravels.SupplierLoginObjects;
-import setup.Setup;
+import setup.TestRunSetup;
 import utils.LogUtils;
 
 // JUnit Test case
@@ -27,12 +29,12 @@ public class PhptravelsJunitTest {
 
 	@Before
 	public void prerequisites(){
-		driver = Setup.launch(url, browser, Constants.CHROMEDRIVER_PATH);
+		driver = TestRunSetup.launch(url, browser, Constants.CHROMEDRIVER_PATH);
 	}
 
 	@After
-	public void postrequisites(){
-		//Setup.teardown(driver);
+	public void postrequisites() throws ParseException{
+		TestRunSetup.teardown(driver);
 	}
 
 	@Test

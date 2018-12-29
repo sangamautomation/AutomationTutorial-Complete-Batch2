@@ -8,13 +8,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import data.Constants;
+import data.TestDataPool;
 import infrastructure.Operations;
 import pageFlows.demoaut.BookAFlightValidatePricePage;
 import pageFlows.demoaut.FlightConfirmationPage;
 import pageFlows.demoaut.FlightFinderPage;
 import pageFlows.demoaut.RegisterPage;
 import pageFlows.demoaut.SelectFlightPage;
-import setup.Setup;
+import setup.TestRunSetup;
 import utils.DateUtils;
 import utils.PropertyUtils;
 import utils.ReportUtils;
@@ -33,13 +34,11 @@ public class DemoautTestngTest {
 
 	@BeforeTest
 	public void prerequisites(){
-		driver = Setup.launch(url, browser, Constants.CHROMEDRIVER_PATH);
-
+		driver = TestRunSetup.launch(url, browser, Constants.CHROMEDRIVER_PATH);
 	}
 
 	@Test
 	public void testDemoaut() {
-		//new TestDataPool();
 
 		try {
 
@@ -76,9 +75,9 @@ public class DemoautTestngTest {
 
 	@AfterTest
 	public void postrequisites() throws ParseException{
-		Setup.teardown(driver);
-		String endTime = DateUtils.getCurrentTimestamp("MM/dd/yyyy HHmmss");
+		TestRunSetup.teardown(driver);
 
+		String endTime = DateUtils.getCurrentTimestamp("MM/dd/yyyy HHmmss");
 		String testDuration = DateUtils.getDateTimeDifference(startTime, endTime, "MM/dd/yyyy HHmmss");
 	}
 

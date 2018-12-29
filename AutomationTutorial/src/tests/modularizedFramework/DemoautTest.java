@@ -3,12 +3,12 @@ package tests.modularizedFramework;
 import org.openqa.selenium.WebDriver;
 
 import data.Constants;
-import flows_ModularizedFramework.BookAFlightValidatePrice;
-import flows_ModularizedFramework.FlightConfirmationValidation;
-import flows_ModularizedFramework.Flights;
-import flows_ModularizedFramework.Register;
-import flows_ModularizedFramework.SelectFlightDepartReturn;
-import setup.Setup;
+import pageFlows.demoautNoDp.BookAFlightValidatePrice;
+import pageFlows.demoautNoDp.FlightConfirmationValidation;
+import pageFlows.demoautNoDp.Flights;
+import pageFlows.demoautNoDp.Register;
+import pageFlows.demoautNoDp.SelectFlightDepartReturn;
+import setup.TestRunSetup;
 
 /**
  * Modularized Framework Example
@@ -23,11 +23,10 @@ public class DemoautTest {
 		
 		try {
 			//Setup
-			Setup setup = new Setup();
 			String url = "http://www.newtours.demoaut.com/";
 			
 			//Setup the WebDriver
-			driver = Setup.launch(url, "chrome", Constants.CHROMEDRIVER_PATH);
+			driver = TestRunSetup.launch(url, "chrome", Constants.CHROMEDRIVER_PATH);
 
 			//Registration
 			Register register = new Register();
