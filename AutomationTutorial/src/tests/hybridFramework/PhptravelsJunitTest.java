@@ -7,16 +7,16 @@ import org.openqa.selenium.WebDriver;
 
 import data.Constants;
 import infrastructure.Operations;
-import pageFlows.phptravels.Home;
-import pageFlows.phptravels.Login;
+import pageFlows.phptravels.HomePage;
+import pageFlows.phptravels.LoginPage;
 import pageFlows.phptravels.QuickBookingsPage;
-import pageObjects.phptravels.SupplierLogin;
+import pageObjects.phptravels.SupplierLoginObjects;
 import setup.Setup;
 import utils.LogUtils;
 
 // JUnit Test case
 
-public class Selenium2PhpTravelsJUnitTest {
+public class PhptravelsJunitTest {
 	//Instantiations
 	WebDriver driver = null;
 	Operations op = new Operations();
@@ -45,7 +45,7 @@ public class Selenium2PhpTravelsJUnitTest {
 		op.waitImplicitly(driver, 10);
 
 		// Login Panel
-		new Login().loginPanel(driver);
+		new LoginPage().loginPanel(driver);
 		
 		//Quick Bookings
 		new QuickBookingsPage().quickbookings(driver);

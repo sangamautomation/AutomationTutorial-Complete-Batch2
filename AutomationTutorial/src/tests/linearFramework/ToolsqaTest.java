@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import infrastructure.Operations;
 import utils.KeyboardUtils;
 
-public class Selenium2ToolsqaTest {
+public class ToolsqaTest {
 
 	public static void main(String[] args) throws Exception {
 

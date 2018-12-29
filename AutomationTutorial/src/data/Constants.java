@@ -25,6 +25,8 @@ public class Constants {
 
 	public static final String filePath_Toolsqa = "\\Users\\sanga\\Pictures\\go2meeting.png";
 
+	public static final String url_Demoaut = "http://www.newtours.demoaut.com/";
+	
 //	public static String screenshotFolderPath = "C:\\Selenium_Logs\\Screenshots\\";
 	public static String screenshotFolderPath = "C:\\Selenium_Logs\\Screenshots\\";
 	

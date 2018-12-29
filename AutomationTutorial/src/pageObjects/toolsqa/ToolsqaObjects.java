@@ -1,6 +1,6 @@
 package pageObjects.toolsqa;
 
-public class Toolsqa {
+public class ToolsqaObjects {
 
 	//Fields for constant XPaths
 	public static final String table_TableHeader1 = "//table/tbody/tr[1]/th";

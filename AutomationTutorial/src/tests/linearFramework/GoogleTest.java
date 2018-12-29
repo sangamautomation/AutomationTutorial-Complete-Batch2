@@ -18,7 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * @date 12/16/2018
  *
  */
-public class Selenium2GoogleTest {
+public class GoogleTest {
 
 	public static void main(String[] args) {
 

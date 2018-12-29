@@ -11,13 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import data.Constants;
 import infrastructure.Operations;
-import pageObjects.toolsqa.Toolsqa;
+import pageObjects.toolsqa.ToolsqaObjects;
 import setup.Setup;
 import utils.DateUtils;
 import utils.KeyboardUtils;
 import utils.ReportUtils;
 
-public class Selenium2ToolsqaTest {
+public class ToolsqaTest {
 
 
 	public static void main(String[] args) throws Exception {
@@ -58,37 +58,37 @@ public class Selenium2ToolsqaTest {
 
 			System.out.println("Automation Practice Table");
 
-			String tableHeader1 =   op.getWidgetText(driver, Toolsqa.table_TableHeader1 );
-			String tableData11 =	op.getWidgetText(driver, Toolsqa.table_TableData11); 
-			String tableData12 =	op.getWidgetText(driver, Toolsqa.table_TableData12); 
-			String tableData13 =	op.getWidgetText(driver, Toolsqa.table_TableData13); 
-			String tableData14 =	op.getWidgetText(driver, Toolsqa.table_TableData14); 
-			String tableData15 =	op.getWidgetText(driver, Toolsqa.table_TableData15); 
-			String tableData16 =	op.getWidgetText(driver, Toolsqa.table_TableData16); 
+			String tableHeader1 =   op.getWidgetText(driver, ToolsqaObjects.table_TableHeader1 );
+			String tableData11 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData11); 
+			String tableData12 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData12); 
+			String tableData13 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData13); 
+			String tableData14 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData14); 
+			String tableData15 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData15); 
+			String tableData16 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData16); 
 
-			String tableHeader2 =   op.getWidgetText(driver, Toolsqa.table_TableHeader2);
-			String tableData21 =	op.getWidgetText(driver, Toolsqa.table_TableData21); 
-			String tableData22 =	op.getWidgetText(driver, Toolsqa.table_TableData22); 
-			String tableData23 =	op.getWidgetText(driver, Toolsqa.table_TableData23); 
-			String tableData24 =	op.getWidgetText(driver, Toolsqa.table_TableData24); 
-			String tableData25 =	op.getWidgetText(driver, Toolsqa.table_TableData25); 
-			String tableData26 =	op.getWidgetText(driver, Toolsqa.table_TableData26); 
+			String tableHeader2 =   op.getWidgetText(driver, ToolsqaObjects.table_TableHeader2);
+			String tableData21 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData21); 
+			String tableData22 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData22); 
+			String tableData23 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData23); 
+			String tableData24 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData24); 
+			String tableData25 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData25); 
+			String tableData26 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData26); 
 
-			String tableHeader3 = op.getWidgetText(driver, Toolsqa.table_TableHeader3);
-			String tableData31 =	op.getWidgetText(driver, Toolsqa.table_TableData31); 
-			String tableData32 =	op.getWidgetText(driver, Toolsqa.table_TableData32); 
-			String tableData33 =	op.getWidgetText(driver, Toolsqa.table_TableData33); 
-			String tableData34 =	op.getWidgetText(driver, Toolsqa.table_TableData34); 
-			String tableData35 =	op.getWidgetText(driver, Toolsqa.table_TableData35); 
-			String tableData36 =	op.getWidgetText(driver, Toolsqa.table_TableData36); 
+			String tableHeader3 = op.getWidgetText(driver, ToolsqaObjects.table_TableHeader3);
+			String tableData31 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData31); 
+			String tableData32 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData32); 
+			String tableData33 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData33); 
+			String tableData34 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData34); 
+			String tableData35 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData35); 
+			String tableData36 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData36); 
 
-			String tableHeader4 = op.getWidgetText(driver, Toolsqa.table_TableHeader4);
-			String tableData41 =	op.getWidgetText(driver, Toolsqa.table_TableData41); 
-			String tableData42 =	op.getWidgetText(driver, Toolsqa.table_TableData42); 
-			String tableData43 =	op.getWidgetText(driver, Toolsqa.table_TableData43); 
-			String tableData44 =	op.getWidgetText(driver, Toolsqa.table_TableData44); 
-			String tableData45 =	op.getWidgetText(driver, Toolsqa.table_TableData45); 
-			String tableData46 =	op.getWidgetText(driver, Toolsqa.table_TableData46); 
+			String tableHeader4 = op.getWidgetText(driver, ToolsqaObjects.table_TableHeader4);
+			String tableData41 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData41); 
+			String tableData42 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData42); 
+			String tableData43 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData43); 
+			String tableData44 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData44); 
+			String tableData45 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData45); 
+			String tableData46 =	op.getWidgetText(driver, ToolsqaObjects.table_TableData46); 
 
 			//driver.findElement(By.xpath("//div[@id='content']//table//tbody/tr[4]/td[6]")).click();
 
@@ -96,7 +96,7 @@ public class Selenium2ToolsqaTest {
 			String[][] tableData = new String[10][10]; //max rows = 10, max cols = 10
 			for (int i = 1; i <= 4; i++) {
 				for (int j = 1; j <= 6; j++) {
-					tableData[i][j] = op.getText(driver, Toolsqa.table_TableAll(i, j)); 
+					tableData[i][j] = op.getText(driver, ToolsqaObjects.table_TableAll(i, j)); 
 				}
 			}
 
@@ -127,23 +127,23 @@ public class Selenium2ToolsqaTest {
 			 */ 
 
 			//Text boxes
-			op.setText(driver, Toolsqa.textbox_FirstName, "Selenium");
-			op.setText(driver, Toolsqa.textbox_LastName, "Automation");
+			op.setText(driver, ToolsqaObjects.textbox_FirstName, "Selenium");
+			op.setText(driver, ToolsqaObjects.textbox_LastName, "Automation");
 
 			//Radio button
-			op.clickRadiobutton(driver, Toolsqa.radiobutton_SexMale);
-			op.clickRadiobutton(driver, Toolsqa.radiobutton_Experience(6));
+			op.clickRadiobutton(driver, ToolsqaObjects.radiobutton_SexMale);
+			op.clickRadiobutton(driver, ToolsqaObjects.radiobutton_Experience(6));
 
 			//Text box
 			op.setTextById(driver, "datepicker", DateUtils.timestamp("MM/dd/yyyy"));
 
 			//Checkboxes
-			op.clickCheckbox(driver, Toolsqa.checkbox_ManualTester);
-			op.clickCheckbox(driver, Toolsqa.checkbox_AutomationTester);
+			op.clickCheckbox(driver, ToolsqaObjects.checkbox_ManualTester);
+			op.clickCheckbox(driver, ToolsqaObjects.checkbox_AutomationTester);
 
 			//Upload & Browse File (Robot / Actions / WGet / AutoIT / ExecRuntime )
 			//Robot is to operate upon non-browser objects
-			op.clickLink(driver, Toolsqa.link_Photo);
+			op.clickLink(driver, ToolsqaObjects.link_Photo);
 
 			//Browse File
 			String filePath1 = "C:\\Users\\sanga\\Pictures\\go2meeting.png";
@@ -160,30 +160,30 @@ public class Selenium2ToolsqaTest {
 			System.out.println("Uploaded the file.");
 
 			//Download File
-			op.clickLink(driver,Toolsqa.link_Download );
+			op.clickLink(driver,ToolsqaObjects.link_Download );
 
 			//Checkbox
-			op.clickCheckbox(driver, Toolsqa.checkbox_Tool);
+			op.clickCheckbox(driver, ToolsqaObjects.checkbox_Tool);
 
 			//Dropdown
-			op.selectDropdown(driver, Toolsqa.dropdown_Continents, "North America");
+			op.selectDropdown(driver, ToolsqaObjects.dropdown_Continents, "North America");
 
 			//Combobox (Multiple selection)
-			op.selectDropdown(driver, Toolsqa.dropdown_SeleniumCommands, "Browser Commands");
-			op.selectDropdown(driver, Toolsqa.dropdown_SeleniumCommands, "Navigation Commands");
-			op.selectDropdown(driver, Toolsqa.dropdown_SeleniumCommands, "WebElement Commands");
+			op.selectDropdown(driver, ToolsqaObjects.dropdown_SeleniumCommands, "Browser Commands");
+			op.selectDropdown(driver, ToolsqaObjects.dropdown_SeleniumCommands, "Navigation Commands");
+			op.selectDropdown(driver, ToolsqaObjects.dropdown_SeleniumCommands, "WebElement Commands");
 
 			//Button (Reloads the same page)
 			//op.clickLink(driver, "//button[contains(@id,'submit')]");
 
 			//Synchronization (Explicit Wait)
-			op.waitExplicitly(driver, 50, Toolsqa.image_Logo);
+			op.waitExplicitly(driver, 50, ToolsqaObjects.image_Logo);
 			//WebDriverWait wait = new WebDriverWait(driver, 50);
 			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='branding']/a/img[contains(@src,'http://20tvni1sjxyh352kld2lslvc.wpengine.netdna-cdn.com/wp-content/uploads/2014/08/Toolsqa.jpg')]"))); 
 			//wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("")), "Expected text"));
 
 			//Label (Capture Text)
-			String capturedText = op.getText(driver, Toolsqa.textlabel_Text1);
+			String capturedText = op.getText(driver, ToolsqaObjects.textlabel_Text1);
 
 		} catch (Exception e) {
 			e.printStackTrace();

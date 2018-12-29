@@ -1,6 +1,6 @@
 package pageObjects.phptravels;
 
-public class Quickbookings {
+public class QuickbookingsObjects {
 
 	public static final String button_QuickBookings = "//button[contains(@data-target,'quickbook')]";
 	public static final String dropdown_Service = "//select[contains(@id,'servicetype')]";

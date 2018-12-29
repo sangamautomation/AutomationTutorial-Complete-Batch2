@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 import data.Constants;
 import infrastructure.Operations;
-import pageObjects.phptravels.SupplierLogin;
+import pageObjects.phptravels.SupplierLoginObjects;
 import utils.PropertyUtils;
 
-public class Login {
+public class LoginPage {
 
 	Operations op = new Operations();
 	public void loginPanel(WebDriver driver){
@@ -16,10 +16,10 @@ public class Login {
 			String username = PropertyUtils.propertyFile_Read(Constants.configPath, "phptravelSupplierUserName");
 			String password = PropertyUtils.propertyFile_Read(Constants.configPath, "phptravelSupplierPassword");
 
-			op.setText(driver, SupplierLogin.textbox_UserName, username);
-			op.setText(driver, SupplierLogin.textbox_Password, password);
+			op.setText(driver, SupplierLoginObjects.textbox_UserName, username);
+			op.setText(driver, SupplierLoginObjects.textbox_Password, password);
 			
-			op.clickLink(driver, SupplierLogin.button_Login);
+			op.clickLink(driver, SupplierLoginObjects.button_Login);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

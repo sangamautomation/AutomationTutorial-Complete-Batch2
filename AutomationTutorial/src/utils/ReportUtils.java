@@ -27,12 +27,12 @@ import data.TestDataPool;
 public class ReportUtils {
 
 
-	public static void reportResult(String verdict_Pass_Fail, String header, String reportComment){
+	public static void reportResult(String verdict_Pass_Fail_Done, String header, String reportComment){
 
 		int counter = Constants.counter;
 		Constants.counter++;
 
-		switch (verdict_Pass_Fail) {
+		switch (verdict_Pass_Fail_Done) {
 		case "Pass":
 			System.out.println("PASS ~ Test Step Passed for "+header+ " :: "+ reportComment);
 			PropertyUtils.propertyFile_Write(Constants.screenshotFolderPath+"Captions.properties", "Caption"+counter, reportComment);

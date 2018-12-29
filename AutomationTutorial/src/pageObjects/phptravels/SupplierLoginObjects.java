@@ -1,6 +1,6 @@
 package pageObjects.phptravels;
 
-public class SupplierLogin {
+public class SupplierLoginObjects {
 	
 public static final String link_SupplierBackend = "//a[contains(@href,'supplier')]";
 public static final String textbox_UserName = "//form[@method='POST']/div/input[@name='email']";

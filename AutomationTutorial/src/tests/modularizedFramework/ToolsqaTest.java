@@ -16,7 +16,7 @@ import utils.DateUtils;
 import utils.KeyboardUtils;
 import utils.ReportUtils;
 
-public class Selenium2ToolsqaTest {
+public class ToolsqaTest {
 
 	@Test
 	public void testToolsqa(){
