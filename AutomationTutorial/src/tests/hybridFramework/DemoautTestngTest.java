@@ -33,7 +33,8 @@ public class DemoautTestngTest {
 	String startTime = DateUtils.getCurrentTimestamp("MM/dd/yyyy HHmmss");
 
 	@BeforeTest
-	public void prerequisites(){
+	public void prerequisites() throws Exception{
+		//TestRunSetup.prerequisites(driver, url, browser, Constants.CHROMEDRIVER_PATH);
 		driver = TestRunSetup.launch(url, browser, Constants.CHROMEDRIVER_PATH);
 	}
 
@@ -67,6 +68,7 @@ public class DemoautTestngTest {
 			//System.out.println("Test case verdict :: "+ "PASS");
 			ReportUtils.reportResult("Pass", "Verdict", "Test case is successful!");
 
+			//Assert.assertEquals(message, expected, actual);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +77,7 @@ public class DemoautTestngTest {
 
 	@AfterTest
 	public void postrequisites() throws ParseException{
+		//TestRunSetup.postrequisites(driver);
 		TestRunSetup.teardown(driver);
 
 		String endTime = DateUtils.getCurrentTimestamp("MM/dd/yyyy HHmmss");

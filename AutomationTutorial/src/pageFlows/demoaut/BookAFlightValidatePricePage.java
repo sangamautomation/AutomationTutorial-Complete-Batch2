@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import data.Constants;
 import infrastructure.Operations;
+import junit.framework.Assert;
 import pageObjects.demoaut.BookAFlightObjects;
 import infrastructure.Operations;
 import utils.ExcelUtils;
@@ -15,13 +16,14 @@ public class BookAFlightValidatePricePage {
 	Operations op = new Operations();
 	static int totalPriceInt=0;
 
-	
-	
+
+
 	//Price Validation
+	@SuppressWarnings("deprecation")
 	public void validatePrice(WebDriver driver) throws Exception{
 		System.out.println("\n********************* validatePrice *********************\n");
 
-		
+
 		//Capturing text
 		String departFlightPrice = op.getText(driver, BookAFlightObjects.text_DepartFlightPrice);
 		//String departFlightPrice = driver.findElement(By.xpath(BookAFlight.text_DepartFlightPrice)).getText();
@@ -52,6 +54,8 @@ public class BookAFlightValidatePricePage {
 		else
 			ReportUtils.reportResult("Fail", "Book A Flight - Total Price", "Total price displayed is NOT correct!");
 
+		//Assert.assertEquals((departReturnFlightPrice*noOfPassengersInt)+taxInt, totalPriceInt);
+
 	}
 
 
@@ -63,27 +67,27 @@ public class BookAFlightValidatePricePage {
 		String sheetName = "Automation";
 		int headerRowNum = 0;
 		int tcRowNum = 1;
-		
+
 		HashMap<String,String> rowData = ExcelUtils.getTestDataXls(filePath, sheetName, headerRowNum, tcRowNum);
-		
-	//	op.switchToFrame(driver, "Xpath of the frame"); //if the objects are inside frame
+
+		//	op.switchToFrame(driver, "Xpath of the frame"); //if the objects are inside frame
 		op.setText(driver, BookAFlightObjects.textBox_FirstName1, rowData.get("firstName1"));
 		op.setText(driver, BookAFlightObjects.textBox_LastName1, rowData.get("lastName1"));
 		op.setText(driver, BookAFlightObjects.textBox_FirstName2, rowData.get("firstName2"));
 		op.setText(driver, BookAFlightObjects.textBox_LastName2, rowData.get("lastName2"));
-	//	op.switchToDefault(driver); //if the objects are inside frame and to switch back
+		//	op.switchToDefault(driver); //if the objects are inside frame and to switch back
 	}
 
 	//Credit Card
 	public void creditCardInfo(WebDriver driver) throws Exception{
-		
+
 		String filePath = Constants.automationDatapoolPath;
- 		String sheetName = "Automation";
+		String sheetName = "Automation";
 		int headerRowNum = 0;
 		int tcRowNum = 1;
-		
+
 		HashMap<String,String> rowData = ExcelUtils.getTestDataXls(filePath, sheetName, headerRowNum, tcRowNum);
-		
+
 		System.out.println("\n********************* creditCardInfo *********************\n");
 
 		op.selectDropdown(driver, BookAFlightObjects.dropdown_CreditCardType, rowData.get("creditCardType"));
@@ -98,7 +102,7 @@ public class BookAFlightValidatePricePage {
 
 		ReportUtils.reportResult("Done", "Book A Flight", "Book A Flight is successful!");
 
-	
+
 		//Submit
 		op.clickLink(driver, BookAFlightObjects.button_SecurePurchase);
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import data.Constants;
+import infrastructure.Operations;
 import setup.TestRunSetup;
 import utils.ReportUtils;
 
@@ -24,7 +25,7 @@ public class Frames {
 
 		WebElement we = driver.findElement(By.xpath("//frame[@name='topFrame']"));
 		driver.switchTo().frame(we);
-		//	new Operations().switchToFrame(driver, "//frame[@name='topFrame']");
+		//new Operations().switchToFrame(driver, "//frame[@name='topFrame']");
 
 		//Operation
 		String text =  driver.findElement(By.xpath("//p[contains(text(),'Demo')]")).getText();
@@ -32,6 +33,7 @@ public class Frames {
 
 		//Switch out of frame
 		driver.switchTo().defaultContent();
+		//new Operations().switchToDefault(driver);
 
 		if(expectedText.equals(text))
 			ReportUtils.reportResult("Pass", "Captured text is correct!", text);

@@ -137,6 +137,23 @@ public class Operations{
 	}
 
 	/**
+	 * This method will switch to a alert with the given xpathLocator
+	 * @param driver
+	 * @param xpathLocator
+	 * @throws InterruptedException 
+	 */
+	public void switchToAlert(WebDriver driver) throws InterruptedException {
+		Thread.sleep(1000);
+		try {
+			driver.switchTo().alert().accept();// Click OK
+			logOk("switchToAlert -");
+		} catch (Exception e) {
+			logNotOk("switchToAlert - ");
+			e.printStackTrace();			
+		}
+	}
+
+	/**
 	 * This method will wait for an object implicitly for a given timeout period in sec
 	 * @param driver
 	 * @param timeout_Seconds
@@ -191,7 +208,7 @@ public class Operations{
 		try {
 			WebDriverWait myWait = new WebDriverWait(driver, maxTimeOutInSeconds);
 			myWait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath(xpathOfWaitingElement)), expectedText));
- 
+
 			LogUtils.log("Waiting explicitly for "+maxTimeOutInSeconds + " seconds" + " in "+ xpathOfWaitingElement+ " for "+ expectedText);
 		} catch (Exception e) {
 			e.printStackTrace();

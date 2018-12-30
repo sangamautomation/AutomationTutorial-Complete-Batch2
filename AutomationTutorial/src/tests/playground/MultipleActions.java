@@ -24,7 +24,7 @@ public class MultipleActions {
 				.keyDown(userName, Keys.SHIFT)
 				.sendKeys(userName, "hello")
 				.doubleClick(userName)
-				.contextClick(userName)
+				.contextClick(userName)//Right click
 				.build();
 		seriesOfActions.perform();
 

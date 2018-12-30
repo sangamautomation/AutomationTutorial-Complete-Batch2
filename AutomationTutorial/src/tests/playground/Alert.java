@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import data.Constants;
+import infrastructure.Operations;
 import setup.TestRunSetup;
 import utils.PropertyUtils;
 import utils.ReportUtils;
@@ -38,7 +39,7 @@ public class Alert {
 		//Screenshot
 		//ScreenshotUtils.screenshot("D:\\Selenium_Logs\\Screenshots", 1);
 
-		String alertMessage_Expected= "This is alert box";
+		String alertMessage_Expected= "This is an alert box.";
 
 		//Alert / Popup - Capture text
 
@@ -55,14 +56,17 @@ public class Alert {
 
 		// ALert - OK
 		Thread.sleep(5000);
-
-		driver.switchTo().alert().accept();// Click OK
+		new Operations().switchToAlert(driver);
+		//driver.switchTo().alert().accept();// Click OK
 		//	driver.switchTo().alert().dismiss();// Click on Red X or Cancel
 
 		//	driver.switchTo().alert().dismiss();
 
-
+		//Waits
 		Thread.sleep(5000);
+		new Operations().waitImplicitly(driver, 10);
+		new Operations().waitExplicitly(driver, 10, "//input[contains(@value,'Go')]");
+		
 		//	driver.close();//closing the single instance of browser
 		driver.quit();//close all instances of browser
 
