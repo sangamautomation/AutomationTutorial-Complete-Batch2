@@ -620,7 +620,7 @@ public class Operations{
 		log("frames count = "+ frameList.size()); //frames count = 0
 
 		log("Number of Toggle buttons found:" + ElementList.size());
-		TestDataPool.rowData.put("noOfNoticeFileRef", Integer.toString(ElementList.size())); 
+		//TestDataPool.rowData.put("noOfNoticeFileRef", Integer.toString(ElementList.size())); 
 
 		for (Iterator<WebElement> iterator = ElementList.iterator(); iterator.hasNext();) {
 			WebElement webElement = (WebElement) iterator.next();
@@ -632,23 +632,21 @@ public class Operations{
 			//		WebElement webElementFrame = (WebElement) iteratorFrame.next();
 			//		driver.switchTo().frame(webElementFrame); // i starts from 1
 			//	switchToFrame(driver, "//iframe[contains(@title,'View Communication')]");
-
-			//switchToFrame(driver, "//iframe[contains(@title,'View Communication') and contains(@src,'"+"_"+counter+"')]");    //iframe[contains(@title,'View Communication') and  contains(@src,'_1')]
 			switchToFrame(driver,xPaths[2]); //Communications.iframe_outer(counter)   //iframe[contains(@title,'View Communication') and  contains(@src,'_1')]
 
 			//	driver.findElement(By.xpath("//*[text()=\""+linkText + "\"]")).click();     
 			//	driver.findElement(By.xpath("//*[contains(@title,'"+xpathLocatorTitle+"')]")).click(); //   \"  = ' (Use single quote or double quote with escape char)
 			counter++;
-			//	TestDataPool.rowData.put("NoticeFileRef" + i, getWidgetText(driver, xPathVar));//TestDataPool.rowData.get("NoticeFileRef"+j)
+			//	//TestDataPool.rowData.put("NoticeFileRef" + i, getWidgetText(driver, xPathVar));////TestDataPool.rowData.get("NoticeFileRef"+j)
 			//			x[i] = getWidgetText(driver, xPathVar);
-			log("noOfNoticeFileRef "+TestDataPool.rowData.get("noOfNoticeFileRef"));
+			//	log("noOfNoticeFileRef "+TestDataPool.rowData.get("noOfNoticeFileRef"));
 
-			//	for (int j = 1; j <= Integer.parseInt(TestDataPool.rowData.get("noOfNoticeFileRef")) ; j++) {
-			TestDataPool.rowData.put("NoticeFileRef" + i, getWidgetText(driver, xPaths[03]));//xPathVar_CapturingText TestDataPool.rowData.get("NoticeFileRef"+j)
-			TestDataPool.rowData.put("NoticeCaseMember" + i, getWidgetText(driver, xPaths[04]));//Communications.text_CaseMember
+			//	for (int j = 1; j <= Integer.parseInt(//TestDataPool.rowData.get("noOfNoticeFileRef")) ; j++) {
+			//TestDataPool.rowData.put("NoticeFileRef" + i, getWidgetText(driver, xPaths[03]));//xPathVar_CapturingText //TestDataPool.rowData.get("NoticeFileRef"+j)
+			//TestDataPool.rowData.put("NoticeCaseMember" + i, getWidgetText(driver, xPaths[04]));//Communications.text_CaseMember
 
-			log("NoticeFileref"+i+" = "+TestDataPool.rowData.get("NoticeFileRef"+i));
-			ReportUtils.reportResult("Pass", "NoticeFileRef"+i, TestDataPool.rowData.get("NoticeFileRef"+i));
+			//log("NoticeFileref"+i+" = "+TestDataPool.rowData.get("NoticeFileRef"+i));
+			//ReportUtils.reportResult("Pass", "NoticeFileRef"+i, TestDataPool.rowData.get("NoticeFileRef"+i));
 			//}
 
 			//log("x"+i+" = "+ x[i]);
@@ -851,7 +849,7 @@ public class Operations{
 
 	/**
 	 * launchBrowser
-	 * browserType can be passed from runtime or datapool [TestDataPool.rowData.get("browser")] 
+	 * browserType can be passed from runtime or datapool [//TestDataPool.rowData.get("browser")] 
 	 * All Drivers (latest version): Chrome,MozillaGecko,MicrosoftEdge,HtmlUnit,Firefox,Opera,Ghost,WindowsPhone,Selendroid,IOS,BlackBerry,Appium,CrossWalk,QT,JBrowser,Winium
 	 * @return
 	 */
@@ -912,7 +910,7 @@ public class Operations{
 			//	driver = new FirefoxDriver(); 
 			//    wait = new WebDriverWait(driver, 3000);
 		}
-		//		else if("HtmlUnit".equals(TestDataPool.rowData.get("browser"))){
+		//		else if("HtmlUnit".equals(//TestDataPool.rowData.get("browser"))){
 		//			driver = new HtmlUnitDriver();
 		//		}
 		else if("IE".equals(browserType)){
