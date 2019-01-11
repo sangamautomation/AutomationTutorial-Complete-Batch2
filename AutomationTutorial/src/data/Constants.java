@@ -2,6 +2,7 @@ package data;
 
 import java.util.Random;
 
+import infrastructure.Configuration;
 import utils.DateUtils;
 import utils.FileSystemUtils;
 import utils.Utils;
@@ -44,7 +45,7 @@ public class Constants {
 	public static String path_RequestXMLFile ="C:/Selenium_Logs/WebServices/requests/SampleWebService.xml";
 	public static String path_ResponseXMLFile ="C:/Selenium_Logs/WebServices/responses/response.xml";
 
-	public static String propertyFilePath_Input_Network = "\\\\MB-SAS-FP-01\\Selenium-Testers$\\Automation-AutomationProjects\\Datapool\\TestInputData.properties";
+	public static String propertyFilePath_Input_Network = "\\\\ServerName\\Testers$\\Automation-AutomationProjects\\Datapool\\TestInputData.properties";
 
 	// Environments
 
@@ -193,9 +194,9 @@ public class Constants {
 	}
 	
 	public static String createLogFolder(){
-		/*if(!"Yes".equals(new Configuration().getProperty("runJavaReporting"))){
+		if(!"Yes".equals(new Configuration().getProperty("runJavaReporting"))){
 			return "C:\\AutomationProjects\\TestAutomation_Selenium_logs\\AutomationTest_ExecutionLog";
-		}*/
+		}
 		String newLogFolder = AutomationTest_ProjectLogFolder_Path + getCallerCallerClassName() + "_" + DateUtils.datetime_Now("MMddYYHHmmss");
 		FileSystemUtils.createFolder(newLogFolder);
 		return newLogFolder;
