@@ -135,6 +135,34 @@ public class ConditionsDemo {
 
 	// SWITCH - CASE 
 
+    
+    // Method to print the name of the day by accepting number of the day
+    public static void dayOfTheWeek(int day){
+
+ 
+            
+                      
+           if(day==1)
+                   System.out.println("Sunday");
+            else if(day==2)
+                  System.out.println("Monday");
+            else if(day==3)
+                  System.out.println("Tuesday");
+            else if(day==4)
+                  System.out.println("Wednesday");
+            else if(day==5)
+                  System.out.println("thursday");
+            else if(day==6)
+                  System.out.println("Friday");
+            else if (day==7)
+                  System.out.println("Saturday");
+            else
+                  System.out.println("Please enter numbers 1 through 7");
+                  
+ 
+        }
+            
+ 
 	//Function to display the name of the week if the number of the week is passed
 	public void weekDays(int a){
 
