@@ -6,7 +6,7 @@ import tests.javaTutorial.library.PolymorphismDemo;
  * 
  * @author Sangam 
  */
-public class OverloadingExample {
+public class OverloadingTest {
 
 	public static void show(){
 		System.out.println("Show this!");
@@ -30,17 +30,6 @@ public class OverloadingExample {
 	}
 
 	public static void main(String[] args) {
-
-		OverridingParent p = new OverridingParent();//Instantiating Parent class
-		OverridingChildTest c = new OverridingChildTest();//Instantiating Child class
-
-		p.setup();
-		p.x = 12;
-		p.add(13, 20);
-
-		c.add(11, 23);
-
-
 
 		PolymorphismDemo poly = new PolymorphismDemo();
 		poly.add(1, 2);
