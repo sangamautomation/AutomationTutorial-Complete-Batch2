@@ -6,9 +6,50 @@ package tests.javaTutorial.tests;
  */
 public class StringManipulationsTest {
 
+	public static void StringUtil(String fn, String mn, String ln, int age){
+		System.out.println(fn + " "+ mn + " "+ ln + "'s age is "+ age +" years!");
+	}
+
+
 	public static void main(String[] args) {
 
 		System.out.println("------String Manipulations--------------------------");
+
+
+
+		String x  = "John Doe Robertson"; //Delimiter = <space>
+
+
+		int lenghOfString = x.length();
+
+
+		System.out.println("The lengh of the string x = " + lenghOfString); // + Concatenation Operator
+		System.out.println("The trimmed string_" + x.trim()+"_");
+		System.out.println("The Substring starting from index 5="+ x.substring(5));
+		System.out.println("The Substring starting from index 5 & ending at 7="+ x.substring(5, 8));
+		System.out.println("The Character at the index 5="+ x.charAt(5));
+
+		System.out.println("The index of o ="+ x.indexOf('o'));
+		System.out.println("The index of R : "+ x.indexOf('R'));
+
+
+		String[] partOfString = x.split(" ");
+
+		System.out.println("The First Name = "+ partOfString[0]);
+		System.out.println("The middler Name = "+ partOfString[1]);
+		System.out.println("The last Name = "+ partOfString[2]);
+
+
+		System.out.println("The name in lower case = " + x.toLowerCase());
+		System.out.println("The name in uppe case = " + x.toUpperCase());
+		System.out.println("The replaced string is  = " + x.replaceAll(" ", "_"));
+
+
+
+
+
+		StringUtil("Shah", "Rukh", "Khan", 55);
+
 
 
 		String firstName = "John";

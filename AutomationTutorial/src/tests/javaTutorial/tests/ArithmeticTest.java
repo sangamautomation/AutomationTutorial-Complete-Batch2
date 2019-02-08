@@ -20,7 +20,6 @@ public class ArithmeticTest {
 		System.out.println("\n ################# Addition ############## \n");
 		int sum =	obj.add(7, 9);
 		System.out.println("The sum = "+ sum);	
-
 		obj.add(1, 3);
 		obj.add(12121, 1212123);
 		obj.add(0, 2312312);
