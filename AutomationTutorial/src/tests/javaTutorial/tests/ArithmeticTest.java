@@ -1,7 +1,6 @@
 package tests.javaTutorial.tests;
 
 import tests.javaTutorial.library.ArithmeticDemo;
-import tests.javaTutorial.library.SwitchCaseHandler;
 
 /**
  * Arithmetic Test
@@ -82,12 +81,6 @@ public class ArithmeticTest {
 		obj.subtraction (30, 50);
 		obj.display(50);
 		obj.countLetters(x);
-
-		SwitchCaseHandler.dayOfTheWeek(1);//Calling method in a static way (static means only one object of class)
-		SwitchCaseHandler w = new SwitchCaseHandler();//Calling method in a non-static way (multiple object of class can be created)
-		String dayName= w.dayOfTheWeek("2");
-		System.out.println("New day of the week is "+ dayName );
-
 
 		try {
 			obj.simpleInterest(1000.50, 4.8, 5.5);
